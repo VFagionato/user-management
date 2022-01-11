@@ -1,10 +1,11 @@
+require('dotenv').config({path: __dirname + '/.env'})
+require('./database')
 const express = require('express')
 const router = require('./router')
 const logger = require('./logger')
 const pinoHttp = require('pino-http')({
   logger
 })
-require('./database')
 
 const PORT = 3333
 
