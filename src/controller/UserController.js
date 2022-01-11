@@ -56,6 +56,11 @@ module.exports = {
     }
 
     for ([key, value] of Object.entries(req.body)) {
+      if (key === 'password') {
+        const hash = await bcrypt.hash(value, 10)
+        user[key] = hash
+        continue
+      }
       user[key] = value
     }
 
